@@ -11,9 +11,14 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-  return 1 + 1
+  const map = {}
+  for (let i = 0; i < nums.length; i++) {
+    const dif = target - nums[i]
+    if (map[dif] || map[dif] == 0) return [map[dif], i]
+    map[dif] = nums[i]
+  }
 };
 // @lc code=end
 
-twoSum(1, 1)
+console.log(twoSum([2, 7, 11, 15], 9))
 
