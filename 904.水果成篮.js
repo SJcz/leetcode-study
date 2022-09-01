@@ -33,10 +33,10 @@ var totalFruit = function (fruits) {
   let l = 0
   let max = 0
   const matchMap = {}
-  for (let i = 0; i < fruits.length; i++) {
+  for (let i = 0; i < fruits.length; i++) { // 扩
     matchMap[fruits[i]] = matchMap[fruits[i]] || 0
     matchMap[fruits[i]]++
-    while (!match(matchMap)) {
+    while (!match(matchMap)) { // 缩的条件
       matchMap[fruits[l]]--
       if (matchMap[fruits[l]] == 0) delete matchMap[fruits[l]]
       l++
