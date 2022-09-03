@@ -21,6 +21,21 @@ var moveZeroes = function (nums) {
     }
     top++
   }
+  // let right = nums.length - 1
+  // let left = 0
+  // while(left < right) {
+  //   while(nums[right] == 0 && left < right) {
+  //     right--
+  //   }
+  //   while(nums[left] !== 0 && left < right) {
+  //     left++
+  //   }
+  //   if (left < right) {
+  //     nums[left] = nums[right]
+  //     nums[right] = 0
+  //   }
+  // }
+  // return nums
 };
 // @lc code=end
 
