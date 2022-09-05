@@ -17,25 +17,31 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isSymmetric = function(root) {
-    const queue = []
-    queue.push(root) 
-    while(queue.length > 0) {
-        const arr = []
-        const size = queue.length
-        for (let i = 0; i < size; i++) {
-            const node = queue.shift()
-            arr.push(node.val)
-            if (node.left || node.right) {
-                queue.push(node.left || { val: 'padding'})
-                queue.push(node.right || { val: 'padding'})
-            }
-        }
-        for (let i = 0; i < arr.length / 2; i++) {
-            if (arr[i] !== arr[arr.length - 1 - i]) return false
-        }
+var isSymmetric = function (root) {
+  // return dc(root.left, root.right)
+  // function dc(left, right) {
+  //   if (!left && !right) return true
+  //   if (!left && right) return false
+  //   if (left && !right) return false
+  //   return left.val == right.val && dc(left.left, right.right) && dc(left.right, right.left)
+  // }
+  const queue = []
+  queue.push(root.left, root.right)
+  while (queue.length > 0) {
+    const node1 = queue.shift()
+    const node2 = queue.shift()
+    if (!node1 && node2) return false
+    if (!node2 && node1) return false
+    if (!node1 && !node2) {
+      continue
     }
-    return true
+    if (node1.val !== node2.val) return false
+    queue.push(node1.left)
+    queue.push(node2.right)
+    queue.push(node2.left)
+    queue.push(node1.right)
+  }
+  return true
 };
 // @lc code=end
 

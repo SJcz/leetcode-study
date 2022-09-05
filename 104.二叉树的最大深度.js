@@ -18,6 +18,12 @@
  * @return {number}
  */
 var maxDepth = function(root) {
+  // return getDepth(root)
+  // function getDepth(node) {
+  //   if (!node) return 0
+  //   const left = getDepth(node.left)
+  //   const right = getDepth(node.right)
+  //   return
     if (!root) return 0
     const queue = []
     queue.push(root)
@@ -32,6 +38,6 @@ var maxDepth = function(root) {
         }
     }
     return max
-};
+  }
 // @lc code=end
 

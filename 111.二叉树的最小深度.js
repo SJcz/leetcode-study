@@ -17,6 +17,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
+
 var minDepth = function(root) {
     // if (!root) return 0
     // const queue = []
@@ -45,6 +46,7 @@ var minDepth = function(root) {
         }
         return min
     }
+
 };
 // @lc code=end
 
