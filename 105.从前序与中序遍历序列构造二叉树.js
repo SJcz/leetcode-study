@@ -18,8 +18,18 @@
  * @param {number[]} inorder
  * @return {TreeNode}
  */
-var buildTree = function(preorder, inorder) {
+var buildTree = function (preorder, inorder) {
+  if (!preorder.length) return null
+  const rootVal = preorder[0]
+  const index = inorder.indexOf(rootVal)
+  const root = { val: rootVal }
 
+  // 左子树前序数组 左子树中序数组
+  root.left = buildTree(preorder.slice(1, 1 + index), inorder.slice(0, index))
+
+  // 右子树前序数组 右子树中序数组
+  root.right = buildTree(preorder.slice(1 + index), inorder.slice(index + 1))
+  return root
 };
 // @lc code=end
 
