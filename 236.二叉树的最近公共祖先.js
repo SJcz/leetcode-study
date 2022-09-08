@@ -47,11 +47,43 @@ var lowestCommonAncestor = function (root, p, q) {
   //   }
   // }
 
+  // 递归
   function dfs(node, targetNode, path) {
     if (!node) return false
     path.push(node)
-    if (node == targetNode) return path
+    if (node === targetNode) return path
+    if (node.left) {
+      const result = dfs(node.left, targetNode, path)
+      if (result) return result
+      path.pop()
+    }
+    if (node.right) {
+      const result = dfs(node.right, targetNode, path)
+      if (result) return result
+      path.pop()
+    }
+    return false
+  }
+  const pParents = dfs(root, p, [])
+  const qParents = dfs(root, q, [])
+  for (let i = pParents.length - 1; i >=0; i--) {
+    if (qParents.includes(pParents[i])) return pParents[i]
   }
 };
 // @lc code=end
+
+
+
+const node1 = {
+  val: 5
+}
+const node2 = {
+  val: 1
+}
+const root = {
+  val: 3,
+  left: node1,
+  right: node2
+}
+lowestCommonAncestor(root, node1, node2)
 

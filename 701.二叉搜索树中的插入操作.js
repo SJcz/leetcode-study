@@ -27,6 +27,7 @@ var insertIntoBST = function (root, val) {
     root.right = insertIntoBST(root.right, val)
   }
   return root
+
 };
 // @lc code=end
 
