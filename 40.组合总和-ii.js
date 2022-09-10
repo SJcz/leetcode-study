@@ -33,5 +33,5 @@ var combinationSum2 = function (candidates, target) {
 };
 // @lc code=end
 
-console.log(combinationSum2([10, 1, 2, 7, 6, 1, 5], 8))
+console.log(combinationSum2([1,1,1,2], 2))
 
