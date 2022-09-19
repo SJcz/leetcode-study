@@ -36,19 +36,19 @@ var countSubstrings = function (s) {
     dp[i][i] = true
   }
   let result = 0
-  for (let i = 0; i < s.length; i++) {
-    for (let j = i; j < s.length; j++) {
+  for (let i = s.length - 1; i >= 0; i--) {
+    for (let j = s.length - 1; j >= i; j--) {
       if (j == i) {
         dp[i][j] = true
       } else if (j - i == 1) {
-        dp[i][j] = (s.charAt(i) == s.charAt(j))
+        dp[i][j] = s.charAt(i) == s.charAt(j)
       } else {
         dp[i][j] = dp[i + 1][j - 1] && (s.charAt(i) == s.charAt(j))
       }
       if (dp[i][j]) result++
     }
   }
-  console.log(dp)
+  // console.log(dp)
   return result
 };
 // @lc code=end
