@@ -22,6 +22,7 @@ var reorderList = function (head) {
     node.next.pre = node
     node = node.next
   }
+  
   head.pre = node
 
   let insertNode = head.pre
